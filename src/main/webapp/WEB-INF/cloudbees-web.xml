@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+  <environment name="cloud">
+    <appid>mqprichard/tutorial</appid>
+    <context-param>
+      <param-name>application.environment</param-name>
+      <param-value>cloud</param-value>
+    </context-param>
+    <resource name="jdbc/countries" auth="Container" type="javax.sql.DataSource">
+      <param name="username" value="mp_bees" />
+      <param name="password" value="welcome1" />
+      <param name="url" value="jdbc:cloudbees://mp_countries" />
+    </resource>
+  </environment>
+  
+  <environment name="local">
+    <appid>mqprichard/tutorial</appid>  
+    <context-param>
+      <param-name>application.environment</param-name>
+      <param-value>local</param-value>
+    </context-param>
+    <resource name="jdbc/countries" auth="Container" type="javax.sql.DataSource">
+        <param name="username" value="bees" />
+        <param name="password" value="bees" />
+        <param name="url" value="jdbc:derby://localhost:1527/countries" />
+        <param name="driverClassName" value="org.apache.derby.jdbc.ClientDriver"/>
+    </resource>
+  </environment>    
+</cloudbees-web-app>
